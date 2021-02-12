@@ -1,0 +1,21 @@
+body {
+    margin: 0px;
+    /*padding: 30px;*/
+    background-color: lightskyblue;
+}
+
+#form {
+    margin: 30px;
+padding: 0px;
+}
+
+#input {
+
+    background-color: white;
+    margin-top: 0px;
+}
+#button {
+    margin-top: 5px;
+
+    background-color: hotpink;
+}
