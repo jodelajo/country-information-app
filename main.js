@@ -27,7 +27,7 @@
 
 async function getCountryInfo(){
 
-    let country = 'Nederland';
+    let country = 'Belgium';
     const url = (`https://restcountries.eu/rest/v2/name/${country}?fullText=true`);
     const response = await axios.get(url);
     const countryData = response.data[0];
@@ -40,8 +40,11 @@ async function getCountryInfo(){
     const capitalString = (`The capital is ${capital}.`)
     console.log(capitalString)
     const currencies = countryData.currencies;
+    const languagesOfCountry = countryData.languages;
     const currencyString = currency(currencies)
     console.log(currencyString)
+    const languageString = languages(languagesOfCountry)
+    console.log(languageString)
 }
 
 const pushbutton = document.getElementById("button");
@@ -77,3 +80,24 @@ function currency(currencyArray) {
 // 2 talen: They speak [language] and [language]
 // 3 talen: They speak [language], [language] and [language]
 // etc.
+function languages(languageArray) {
+    // for (const language of languageArray) {
+    //     console.log('language', language)
+    //     let count = '';
+    //     count = count + `They speak ${language.name}`;
+    //     console.log(count)
+    const languageOne = languageArray[0];
+    const languageTwo = languageArray[1];
+    const languageThree = languageArray[2];
+            if (languageArray.length === 1) {
+                return `They speak ${languageOne.name}.`
+            }
+            if (languageArray.length === 2) {
+                return `They speak ${languageOne.name} and ${languageTwo.name}.`
+            }
+            if (languageArray.length === 3) {
+                return `They speak ${languageOne.name}, ${languageTwo.name} and ${languageThree.name}.`
+            }
+        }
+
+
