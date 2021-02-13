@@ -34,7 +34,7 @@
 
 async function getCountryInfo(){
 
-    let country = 'Belgium';
+    let country = 'Italy';
     const url = (`https://restcountries.eu/rest/v2/name/${country}?fullText=true`);
     const response = await axios.get(url);
     const countryData = response.data[0];
@@ -51,9 +51,9 @@ async function getCountryInfo(){
     // const countryFlag = countryData.flag;
 
     const afkorting = countryData.alpha3Code;
-    let afkOnderkast = afkorting.toLowerCase();
+    const afkOnderkast = afkorting.toLowerCase();
     console.log(afkOnderkast)
-    let flagurl = (`https://restcountries.eu/data/${afkOnderkast}.svg`);
+    const flagurl = (`https://restcountries.eu/data/${afkOnderkast}.svg`);
     console.log(flagurl)
     const currencyString = currency(currencies)
     console.log(currencyString)
