@@ -70,3 +70,10 @@ function currency(currencyArray) {
     }
 }
 
+// Bonusopdracht: Maak een functie die ongeacht het aantal talen
+// die in een land gesproken worden, een string maakt:
+//
+//     1 taal: They speak [language]
+// 2 talen: They speak [language] and [language]
+// 3 talen: They speak [language], [language] and [language]
+// etc.
