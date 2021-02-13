@@ -51,3 +51,9 @@ body {
 #button {
     background-color: hotpink;
 }
+#infoblock {
+    margin-top: 40px;
+    background-color: orange;
+    width:50%;
+    height: 100px;
+}

@@ -23,11 +23,18 @@
 // - [ ] await toevoegen
 // - [ ] response -> checken
 
+// 7. Zorg ervoor dat de opgehaalde data op de volgende manier wordt toegevoegd aan de DOM:
+//
+//   [IMAGE: flag]
+// [country-name]
+//     [country-naam] is situated in [subarea-name]. It has a population of [amount] people.
+//     The capital is [city] and you can pay with [currency]'s
+// They speak [language], [language] and [language]
 
 
 async function getCountryInfo(){
 
-    let country = 'Belgium';
+    let country = 'nederland';
     const url = (`https://restcountries.eu/rest/v2/name/${country}?fullText=true`);
     const response = await axios.get(url);
     const countryData = response.data[0];
@@ -41,6 +48,13 @@ async function getCountryInfo(){
     console.log(capitalString)
     const currencies = countryData.currencies;
     const languagesOfCountry = countryData.languages;
+    const countryFlag = countryData.flag;
+
+    const afkorting = countryData.alpha3Code;
+    let afkOnderkast = afkorting.toLowerCase();
+    console.log(afkOnderkast)
+    let flagurl = (`https://restcountries.eu/data/${afkOnderkast}.svg`);
+    console.log(flagurl)
     const currencyString = currency(currencies)
     console.log(currencyString)
     const languageString = languages(languagesOfCountry)
@@ -99,5 +113,8 @@ function languages(languageArray) {
                 return `They speak ${languageOne.name}, ${languageTwo.name} and ${languageThree.name}.`
             }
         }
+
+
+
 
 
