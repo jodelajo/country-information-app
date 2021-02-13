@@ -27,21 +27,21 @@
 
 async function getCountryInfo(){
 
-    let country = 'Belgium';
-    console.log("country", country)
-
+    let country = 'Nederland';
     const url = (`https://restcountries.eu/rest/v2/name/${country}?fullText=true`);
     const response = await axios.get(url);
-    console.log("RES:", response);
+    const countryData = response.data[0];
+    console.log(countryData)
     const subArea = response.data[0].region;
-    console.log("region:", subArea)
-    const population = response.data[0].population;
-    console.log(population)
-    basicInfoCountry = (`${country} is situated in ${subArea}. It has a population of ${population} people.`);
-    console.log(basicInfoCountry)
+    const populationOfCountry = response.data[0].population;
+    const basicInfoCountryString = (`${countryData.name} is situated in ${subArea}. It has a population of ${populationOfCountry} people.`);
+    console.log(basicInfoCountryString)
     const capital = response.data[0].capital;
-    console.log(`The capital is ${capital}.`)
-
+    const capitalString = (`The capital is ${capital}.`)
+    console.log(capitalString)
+    const currencies = countryData.currencies;
+    const currencyString = currency(currencies)
+    console.log(currencyString)
 }
 
 const pushbutton = document.getElementById("button");
@@ -58,7 +58,15 @@ pushbutton.addEventListener('click', getCountryInfo);
 //     1 valuta: and you can pay with [currency]'s
 // 2 valuta's: and you can pay with [currency]'s and [currency]'s
 
-async function currency(){
-    let countryCurrency = 'Euro';
-    console.log('Country currency', countryCurrency)
+function currency(currencyArray) {
+    const currencyOne = currencyArray[0]
+    const currencyTwo = currencyArray[1]
+
+    if (currencyArray.length === 1) {
+        return `and you can pay with ${currencyOne.name}'s`
+    }
+    if (currencyArray.length > 1) {
+        return `and you can pay with ${currencyOne.name}'s and ${currencyTwo.name}'s`
+    }
 }
+
