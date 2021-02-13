@@ -52,8 +52,27 @@ body {
     background-color: hotpink;
 }
 #infoblock {
+    padding: 20px;
     margin-top: 40px;
-    background-color: orange;
+    background-color: aquamarine;
     width:50%;
-    height: 100px;
+    border-radius: 4px;
+    box-shadow: 5px 5px 15px  sienna;
+
+}
+#part1 {
+    display: flex;
+    border-bottom: 1px solid darkorange;
+    padding-bottom: 10px;
+}
+#part2 {
+    margin-top: 20px;
+}
+
+.flagImage {
+    width: 40px;
+    height: 25px;
+}
+#country {
+    margin-left: 20px;
 }

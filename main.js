@@ -34,7 +34,7 @@
 
 async function getCountryInfo(){
 
-    let country = 'nederland';
+    let country = 'Belgium';
     const url = (`https://restcountries.eu/rest/v2/name/${country}?fullText=true`);
     const response = await axios.get(url);
     const countryData = response.data[0];
@@ -48,7 +48,7 @@ async function getCountryInfo(){
     console.log(capitalString)
     const currencies = countryData.currencies;
     const languagesOfCountry = countryData.languages;
-    const countryFlag = countryData.flag;
+    // const countryFlag = countryData.flag;
 
     const afkorting = countryData.alpha3Code;
     let afkOnderkast = afkorting.toLowerCase();
@@ -59,10 +59,31 @@ async function getCountryInfo(){
     console.log(currencyString)
     const languageString = languages(languagesOfCountry)
     console.log(languageString)
+
+    const image = document.createElement('img');
+    image.setAttribute('class', 'flagImage')
+    image.src = flagurl;
+     const src = document.getElementById('flag');
+     src.appendChild(image);
+    const countryName = document.getElementById('country');
+    countryName.textContent = country;
+    const geoInfo = document.getElementById('geo');
+    geoInfo.textContent = basicInfoCountryString;
+    const capCurInfo = document.getElementById('cap');
+    capCurInfo.textContent = capitalString + currencyString;
+    const langInfo = document.getElementById('lang')
+    langInfo.textContent = languageString;
+
 }
 
 const pushbutton = document.getElementById("button");
 pushbutton.addEventListener('click', getCountryInfo);
+
+// DOM voor vlag
+// pad voor vlag dynamisch gemaakt
+// div met id gemaakt
+// get element by id
+// appendchild
 //
 //
 // 2. Maak op basis van de response de volgende string en log dit in de console:
@@ -80,10 +101,10 @@ function currency(currencyArray) {
     const currencyTwo = currencyArray[1]
 
     if (currencyArray.length === 1) {
-        return `and you can pay with ${currencyOne.name}'s`
+        return `and you can pay with ${currencyOne.name}'s.`
     }
     if (currencyArray.length > 1) {
-        return `and you can pay with ${currencyOne.name}'s and ${currencyTwo.name}'s`
+        return `and you can pay with ${currencyOne.name}'s and ${currencyTwo.name}'s.`
     }
 }
 
