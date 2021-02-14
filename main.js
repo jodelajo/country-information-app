@@ -15,14 +15,12 @@ async function getCountryInfo(){
     const languagesOfCountry = countryData.languages;
     const afkorting = countryData.alpha3Code;
     const afkOnderkast = afkorting.toLowerCase();
-    const flagurl = (`https://restcountries.eu/data/${afkOnderkast}.svg`);
+    const flagUrl = (`https://restcountries.eu/data/${afkOnderkast}.svg`);
     const currencyString = currency(currencies)
     const languageString = languages(languagesOfCountry)
-    const image = document.createElement('img');
+    const image = document.getElementById('flag');
     image.setAttribute('class', 'flagImage')
-    image.src = flagurl;
-     const src = document.getElementById('flag');
-     src.appendChild(image);
+    image.src = flagUrl;
     const countryName = document.getElementById('country');
     countryName.textContent = country;
     const geoInfo = document.getElementById('geo');
