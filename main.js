@@ -33,32 +33,34 @@
 
 
 async function getCountryInfo(){
-
-    let country = 'Switzerland';
+    const inputElement = document.getElementById('input');
+    const userInput = inputElement.value;
+    console.log(userInput)
+    let country = userInput;
     const url = (`https://restcountries.eu/rest/v2/name/${country}?fullText=true`);
     const response = await axios.get(url);
     const countryData = response.data[0];
-    console.log(countryData)
+    // console.log(countryData)
     const subArea = response.data[0].region;
     const populationOfCountry = response.data[0].population;
     const basicInfoCountryString = (`${countryData.name} is situated in ${subArea}. It has a population of ${populationOfCountry} people.`);
-    console.log(basicInfoCountryString)
+    // console.log(basicInfoCountryString)
     const capital = response.data[0].capital;
     const capitalString = (`The capital is ${capital} `)
-    console.log(capitalString)
+    // console.log(capitalString)
     const currencies = countryData.currencies;
     const languagesOfCountry = countryData.languages;
     // const countryFlag = countryData.flag;
 
     const afkorting = countryData.alpha3Code;
     const afkOnderkast = afkorting.toLowerCase();
-    console.log(afkOnderkast)
+    // console.log(afkOnderkast)
     const flagurl = (`https://restcountries.eu/data/${afkOnderkast}.svg`);
-    console.log(flagurl)
+    // console.log(flagurl)
     const currencyString = currency(currencies)
-    console.log(currencyString)
+    // console.log(currencyString)
     const languageString = languages(languagesOfCountry)
-    console.log(languageString)
+    // console.log(languageString)
 
     const image = document.createElement('img');
     image.setAttribute('class', 'flagImage')
@@ -133,8 +135,8 @@ function languages(languageArray) {
         }
 
 function countryInput(event) {
-    console.log(event.code)
-    console.log("country input", event.code === "Enter")
+    // console.log(event.code)
+    // console.log("country input", event.code === "Enter")
     if (event.code === "Enter") {
         getCountryInfo()
     }
@@ -146,4 +148,4 @@ const pushbutton = document.getElementById("button");
 pushbutton.addEventListener('click', getCountryInfo);
 const searchCountry = document.getElementById("input");
 searchCountry.addEventListener('keypress', countryInput);
-console.log(searchCountry)
+// console.log(searchCountry)
