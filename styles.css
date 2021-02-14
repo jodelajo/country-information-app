@@ -13,9 +13,9 @@ body {
 }
 #box {
     /*width: 100%;*/
-    margin: 6% 20% 10% 20%;
+    margin: 6% 10% 10% 10%;
     background-color: #B90138;
-    padding: 60px 0;
+    padding: 30px 0;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -27,70 +27,69 @@ body {
 h1 {
     text-align: center;
    max-width: 80%;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
     font-weight: bolder;
     font-size: 48px;
 }
 #image {
     width: 80%;
     border-radius: 24px;
-    margin-bottom: 80px;
-    box-shadow: 5px 5px 15px  #170007;
+    margin-bottom: 40px;
+    border: 3px solid #170007;
 }
-/*#form {*/
-/*margin-top: 40px;*/
+#form {
+    display: flex;
+    justify-content: center;
+}
 
-/*    !*height: 60px;*!*/
-/*    !*margin-right: 50px;*!*/
-/*    !*margin-left: 50px;*!*/
-/*    !*width: 400px;*!*/
-/*    !*display: flex;*!*/
-/*    !*justify-content: space-between;*!*/
-/*    !*align-self: center;*!*/
-/*}*/
 
 #input, #button {
-    /*width: 300px;*/
-    /*margin-right: 0px;*/
-    /*margin-left: 0px;*/
-    padding: 10px;
-
-    font-family: "Courier New", sans-serif;
-    font-size: large;
-
-    align-self: stretch;
-    border: 1px solid #5C011C;
-    box-shadow: 2px 2px 5px  #170007;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 10px 20px;
+    font-size: 24px;
+    /*align-self: stretch;*/
+    border: 3px solid #5C011C;
+    border-radius: 3px;
     /*margin-top: 0px;*/
-    font-family: Roboto;
+    font-family: monospace;
+    /*letter-spacing: 3px;*/
 }
 #input{
     background-color: lightpink;
 
 }
 #button {
-    margin-left: 10px;
+    margin-left: 20px;
     background-color: #450015;
     font-weight: bold;
+
     color: lightpink;
-    letter-spacing: 3px;
+
+}
+#button:visited {
+    color: #740123;
+    border: 3px solid #5C011C;
 }
 #infoblock {
     padding: 20px;
-    margin-top: 80px;
-    margin-bottom: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
     background-color: #740123;
     width:55%;
-    border-radius: 4px;
-    box-shadow: 5px 5px 15px  #170007;
+    border: 3px solid #B90138;
+    border-radius: 32px;
+    box-shadow: 5px 5px 20px #740123;
     color: lightpink;
 
 }
 #part1 {
     display: flex;
-    border-bottom: 1px solid #A20131;
+    border-bottom: 3px solid #450015;
+    margin-top: 10px;
     padding-bottom: 20px;
     align-items: flex-end;
+    padding-left: 10px;
 }
 #part2 {
     margin-top: 20px;
@@ -98,14 +97,15 @@ h1 {
 }
 
 .flagImage {
-    width: 48px;
-    height: 32px;
+    width: 60px;
+    height: 40px;
+    border: solid 3px lightpink;
 }
 #country {
     margin-left: 20px;
     font-weight: bolder;
-    font-size: 32px;
-    color: #B90138;
+    font-size: 42px;
+    color: #CB416A;
 }
 #geo, #cap {
     margin-bottom: 16px;

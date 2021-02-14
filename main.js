@@ -34,7 +34,7 @@
 
 async function getCountryInfo(){
 
-    let country = 'Italy';
+    let country = 'Switzerland';
     const url = (`https://restcountries.eu/rest/v2/name/${country}?fullText=true`);
     const response = await axios.get(url);
     const countryData = response.data[0];
@@ -44,7 +44,7 @@ async function getCountryInfo(){
     const basicInfoCountryString = (`${countryData.name} is situated in ${subArea}. It has a population of ${populationOfCountry} people.`);
     console.log(basicInfoCountryString)
     const capital = response.data[0].capital;
-    const capitalString = (`The capital is ${capital}.`)
+    const capitalString = (`The capital is ${capital} `)
     console.log(capitalString)
     const currencies = countryData.currencies;
     const languagesOfCountry = countryData.languages;
@@ -73,11 +73,8 @@ async function getCountryInfo(){
     capCurInfo.textContent = capitalString + currencyString;
     const langInfo = document.getElementById('lang')
     langInfo.textContent = languageString;
-
 }
 
-const pushbutton = document.getElementById("button");
-pushbutton.addEventListener('click', getCountryInfo);
 
 // DOM voor vlag
 // pad voor vlag dynamisch gemaakt
@@ -135,7 +132,18 @@ function languages(languageArray) {
             }
         }
 
+function countryInput(event) {
+    console.log(event.code)
+    console.log("country input", event.code === "Enter")
+    if (event.code === "Enter") {
+        getCountryInfo()
+    }
+}
+// countryInput()
 
 
-
-
+const pushbutton = document.getElementById("button");
+pushbutton.addEventListener('click', getCountryInfo);
+const searchCountry = document.getElementById("input");
+searchCountry.addEventListener('keypress', countryInput);
+console.log(searchCountry)
