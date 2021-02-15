@@ -1,45 +1,39 @@
-
-
 body {
-    /*margin: 0px;*/
-    /*padding: 50px;*/
     background-color: #2E000E;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
     font-family: "Courier New", sans-serif;
-
 }
+
 #box {
-    /*width: 100%;*/
     margin: 4% 10% 10% 10%;
     background-color: #B90138;
     padding: 30px 10%;
     display: flex;
     justify-content: center;
-    /*flex-direction: column;*/
-    /*align-items: center;*/
     border-radius: 48px;
     box-shadow: 5px 5px 15px  #170007;
     flex-wrap: wrap;
 }
+
 h1 {
     text-align: center;
-    /*max-width: 75%;*/
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     font-weight: bolder;
     font-size: 52px;
     margin-left: auto;
     margin-right: auto;
 }
+
 #image {
     width: 30%;
     height: 30%;
     border-radius: 24px;
     margin-bottom: 30px;
-    /*border: 3px solid #170007;*/
 }
+
 #form {
     width: 100%;
     display: flex;
@@ -50,27 +44,19 @@ h1 {
     margin-right: auto;
 }
 
-
 #input, #button {
-    /*margin-right: auto;*/
-    /*margin-left: auto;*/
-
     padding: 10px 20px;
     font-size: 24px;
-    /*align-self: stretch;*/
     border: 3px solid #5C011C;
     border-radius: 3px;
-    /*margin-top: 0px;*/
     font-family: monospace;
-    /*letter-spacing: 3px;*/
 }
+
 #input{
     background-color: lightpink;
     text-transform: capitalize;
-    /*width: 60%;*/
-
 }
-button {}
+
 #button {
     margin-left: 20px;
     background-color: #450015;
@@ -85,7 +71,7 @@ button {}
 }
 
 #error-message{
-margin-top: 30px;
+    margin-top: 30px;
     color: #170007;
     font-size: 18px;
 }
@@ -96,11 +82,11 @@ margin-top: 30px;
     padding: 3px 3px 3px 3px;
     width: 30px;
     height: 30px;
-    /*background-color: lightpink;*/
     text-align: center;
     font-family: monospace;
 }
-.refresh-button{
+
+.refresh-button {
    display: none;
 }
 
@@ -109,14 +95,11 @@ margin-top: 30px;
     padding: 20px;
     margin: 40px 0;
     background-color: #740123;
-    /*min-width:60%;*/
     border: 3px solid #2E000E;
     border-radius: 4px;
-    /*box-shadow: 3px 3px 5px #740123;*/
     color: lightpink;
-
-
 }
+
 #part1 {
     display: flex;
     border-bottom: 3px solid #450015;
@@ -125,11 +108,11 @@ margin-top: 30px;
     align-items: flex-end;
     padding-left: 10px;
 }
+
 #part2 {
     margin-top: 20px;
     padding: 10px;
     font-size: 24px;
-
 }
 
 .flagImage {
@@ -137,6 +120,7 @@ margin-top: 30px;
     height: 40px;
     border: solid 3px #450015;
 }
+
 #country {
     margin-left: 20px;
     font-weight: bolder;
@@ -144,10 +128,7 @@ margin-top: 30px;
     color: #CB416A;
     text-transform: capitalize;
 }
+
 #geo, #cap {
     margin-bottom: 16px;
 }
-/*.block {*/
-/*    display: none;*/
-/*}*/
-

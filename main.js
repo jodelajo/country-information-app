@@ -6,9 +6,7 @@ const refreshButton = document.getElementById("refresh")
         let country = inputElement.value;
         const url = (`https://restcountries.eu/rest/v2/name/${country}?fullText=true`);
         const response = await axios.get(url);
-        console.log(response)
         const countryData = response.data[0];
-        console.log(countryData)
         const subArea = response.data[0].region;
         const populationOfCountry = response.data[0].population;
         const basicInfoCountryString = (`${countryData.name} is situated in ${subArea}. It has a population of ${populationOfCountry} people.`);
@@ -33,10 +31,7 @@ const refreshButton = document.getElementById("refresh")
         const langInfo = document.getElementById('lang')
         langInfo.textContent = languageString;
     } catch (e) {
-        console.log("ERROR:", e.message);
-        console.log('ERROR RESPONSE:', e.response);
         if (e.message === "Request failed with status code 404") {
-            console.log("404!")
             const message = "Failed to recognize country name.";
             const error = document.getElementById("error-message")
             error.textContent = message;
@@ -44,6 +39,10 @@ const refreshButton = document.getElementById("refresh")
         }
         refreshButton.addEventListener('click', reloadThePage);
     }
+}
+
+function reloadThePage(){
+    window.location.reload();
 }
 
 function currency(currencyArray) {
@@ -76,10 +75,6 @@ function countryInput(event) {
     if (event.code === "Enter") {
         getCountryInfo()
     }
-}
-
-function reloadThePage(){
-    window.location.reload();
 }
 
 const pushbutton = document.getElementById("button");
