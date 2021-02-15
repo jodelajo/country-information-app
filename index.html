@@ -3,19 +3,20 @@
 <link rel="stylesheet" href="styles.css">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Country Information App</title>
 </head>
 <body>
-
-
 <div id="box">
     <h1>Let's search some country information</h1>
-    <img id="image" src="assets/country-information.png">
+    <img id="image" src="assets/logo_transp.png" alt="globe">
     <div id="form">
-        <input id="input" type="text" onfocus="this.value=''" placeholder="Enter country..."/>
-        <button id="button" type="button" >Verzenden</button>
+        <input id="input" type="text" onclick="this.value=''" placeholder="Enter country..."/>
+        <button id="button" type="button" >Search</button>
     </div>
-    <div id="infoblock">
+    <div id="error-message">
+    </div>
+    <img class="refresh-button" id="refresh" src="assets/refresh2.png" alt="refresh-button"/>
+    <div id="info-block">
         <div id="part1">
             <img id="flag">
             <div id="country"></div>
@@ -27,7 +28,9 @@
         </div>
     </div>
 </div>
+
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 <script src="main.js"></script>
 </body>
 </html>
