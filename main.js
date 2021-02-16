@@ -7,12 +7,16 @@ const refreshButton = document.getElementById("refresh")
         const url = (`https://restcountries.eu/rest/v2/name/${country}?fullText=true`);
         const response = await axios.get(url);
         const countryData = response.data[0];
+        console.log(response)
+        console.log(countryData);
         const subArea = response.data[0].region;
         const populationOfCountry = response.data[0].population;
         const basicInfoCountryString = (`${countryData.name} is situated in ${subArea}. It has a population of ${populationOfCountry} people.`);
         const capital = response.data[0].capital;
         const capitalString = (`The capital is ${capital} `)
         const currencies = countryData.currencies;
+        const countries = countryData.name;
+        console.log('countries:', countries)
         const languagesOfCountry = countryData.languages;
         const afkorting = countryData.alpha3Code;
         const afkOnderkast = afkorting.toLowerCase();
@@ -30,6 +34,7 @@ const refreshButton = document.getElementById("refresh")
         capCurInfo.textContent = capitalString + currencyString;
         const langInfo = document.getElementById('lang')
         langInfo.textContent = languageString;
+        // validateInput(countries)
     } catch (e) {
         if (e.message === "Request failed with status code 404") {
             const message = "Failed to recognize country name.";
@@ -40,6 +45,8 @@ const refreshButton = document.getElementById("refresh")
         refreshButton.addEventListener('click', reloadThePage);
     }
 }
+
+
 
 function reloadThePage(){
     window.location.reload();

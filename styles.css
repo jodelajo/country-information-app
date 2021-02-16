@@ -38,8 +38,6 @@ h1 {
     width: 100%;
     display: flex;
     justify-content: center;
-    /*align-content: space-between;*/
-    /*flex-wrap: wrap;*/
     margin-left: auto;
     margin-right: auto;
 }
