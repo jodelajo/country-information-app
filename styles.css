@@ -130,3 +130,7 @@ h1 {
 #geo, #cap {
     margin-bottom: 16px;
 }
+
+.country-item {
+    color: #fff;
+}
