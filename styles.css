@@ -131,6 +131,64 @@ h1 {
     margin-bottom: 16px;
 }
 
+#listOfCountries {
+    list-style-type: none;
+    column-count: 3;
+    justify-content: space-around;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    /*gap: 20px;*/
+    align-items: start;
+    /*padding: 10px 50px;*/
+
+
+
+}
 .country-item {
     color: #fff;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: auto auto;
+    /*margin-bottom: 10px;*/
+    font-size: 1.2em;
+}
+.country-item:hover {
+    cursor: pointer;
+}
+
+.population {
+    grid-column-start: 2;
+    font-size: 0.6em;
+    opacity: 0;
+    color: #fff;
+    margin: 5px;
+}
+
+.show-population {
+    opacity: 1;
+}
+.single-flag {
+    width: 30px;
+    height: 20px;
+    margin-right: 10px;
+    /*display: inline-block;*/
+}
+
+.red {
+    color: #B90138;
+}
+.yellow {
+    color: yellow;
+}
+
+.blue {
+    color: blue;
+}
+.green {
+    color: green;
+}
+.purple {
+    color: purple;
 }
