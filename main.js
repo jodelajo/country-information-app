@@ -1,64 +1,91 @@
-//
-// 1. Maak een 'Zoek'-knop op de pagina
-// 2. en koppel deze aan een functie
-// 3. die de gegevens over `België` ophaalt en dit in de console logt.
-//
-//     _Tip:_ Als de de [documentatie](https://www.npmjs.com/package/axios) bekijkt en op `async` zoekt, vindt je een voorbeeld van een GET-request.
-//
-// ## 1. De gebruiker kan de knop zien
-//
-// - [ ] Zoek knop maken (HTML)
-// - [ ] id meegeven -> om met javascript te selecteren (HTML)
-//
-// ## 2. De gebruiker gaat klikken
+async function getCountryInfo() {
+const refreshButton = document.getElementById("refresh")
+    try {
+        refreshButton.setAttribute('class', 'refresh-button')
+        const inputElement = document.getElementById('input');
+        let country = inputElement.value;
+        const url = (`https://restcountries.eu/rest/v2/name/${country}?fullText=true`);
+        const response = await axios.get(url);
+        const countryData = response.data[0];
+        console.log(response)
+        console.log(countryData);
+        const subArea = response.data[0].region;
+        const populationOfCountry = response.data[0].population;
+        const basicInfoCountryString = (`${countryData.name} is situated in ${subArea}. It has a population of ${populationOfCountry} people.`);
+        const capital = response.data[0].capital;
+        const capitalString = (`The capital is ${capital} `)
+        const currencies = countryData.currencies;
+        const countries = countryData.name;
+        console.log('countries:', countries)
+        const languagesOfCountry = countryData.languages;
+        const afkorting = countryData.alpha3Code;
+        const afkOnderkast = afkorting.toLowerCase();
+        const flagUrl = (`https://restcountries.eu/data/${afkOnderkast}.svg`);
+        const currencyString = currency(currencies)
+        const languageString = languages(languagesOfCountry)
+        const image = document.getElementById('flag');
+        image.setAttribute('class', 'flagImage')
+        image.src = flagUrl;
+        const countryName = document.getElementById('country');
+        countryName.textContent = country;
+        const geoInfo = document.getElementById('geo');
+        geoInfo.textContent = basicInfoCountryString;
+        const capCurInfo = document.getElementById('cap');
+        capCurInfo.textContent = capitalString + currencyString;
+        const langInfo = document.getElementById('lang')
+        langInfo.textContent = languageString;
+        // validateInput(countries)
+    } catch (e) {
+        if (e.message === "Request failed with status code 404") {
+            const message = "Failed to recognize country name.";
+            const error = document.getElementById("error-message")
+            error.textContent = message;
+            refreshButton.removeAttribute('class');
+        }
+        refreshButton.addEventListener('click', reloadThePage);
+    }
+}
 
-// - [ ] Knop selecteren (getElementById, opslaan in variabele)
-// - [ ] Event listener & Event Handler toevoegen aan knop (addEventListener, click, async functie)
-//
-// ## 3. Wanneer de gebruiker klikt wordt mijn async function aangeroepen
-//
-// - [ ] Variable met maken country -> "Belgie" (hardcoden)
-//     - [ ] Variabele Url maken -> https://restcountries.eu/rest/v2/name/${country}?fullText=true
-// - [ ] axios.get(url)
-// - [ ] await toevoegen
-// - [ ] response -> checken
 
 
+function reloadThePage(){
+    window.location.reload();
+}
 
-async function getCountryInfo(){
+function currency(currencyArray) {
+    const currencyOne = currencyArray[0]
+    const currencyTwo = currencyArray[1]
+    if (currencyArray.length === 1) {
+        return `and you can pay with ${currencyOne.name}'s.`
+    }
+    if (currencyArray.length > 1) {
+        return `and you can pay with ${currencyOne.name}'s and ${currencyTwo.name}'s.`
+    }
+}
 
-    let country = 'Belgium';
-    console.log("country", country)
+function languages(languageArray) {
+    const languageOne = languageArray[0];
+    const languageTwo = languageArray[1];
+    const languageThree = languageArray[2];
+            if (languageArray.length === 1) {
+                return `They speak ${languageOne.name}.`
+            }
+            if (languageArray.length === 2) {
+                return `They speak ${languageOne.name} and ${languageTwo.name}.`
+            }
+            if (languageArray.length === 3) {
+                return `They speak ${languageOne.name}, ${languageTwo.name} and ${languageThree.name}.`
+            }
+        }
 
-    const url = (`https://restcountries.eu/rest/v2/name/${country}?fullText=true`);
-    const response = await axios.get(url);
-    console.log("RES:", response);
-    const subArea = response.data[0].region;
-    console.log("region:", subArea)
-    const population = response.data[0].population;
-    console.log(population)
-    basicInfoCountry = (`${country} is situated in ${subArea}. It has a population of ${population} people.`);
-    console.log(basicInfoCountry)
-    const capital = response.data[0].capital;
-    console.log(`The capital is ${capital}.`)
-
+function countryInput(event) {
+    if (event.code === "Enter") {
+        getCountryInfo()
+    }
 }
 
 const pushbutton = document.getElementById("button");
 pushbutton.addEventListener('click', getCountryInfo);
-//
-//
-// 2. Maak op basis van de response de volgende string en log dit in de console:
-//    [country-naam] is situated in [subarea-name]. It has a population of [amount] people.
+const searchCountry = document.getElementById("input");
+searchCountry.addEventListener('keypress', countryInput);
 
-// 3. Maak op basis van de response de volgende string en log dit in de console: The capital is [city]
-
-// 4. Maak een functie die ongeacht het aantal currencies die in een land gebruikt worden, een string maakt.
-// In een land kunnen één of twee currencies gebruikt worden:
-//     1 valuta: and you can pay with [currency]'s
-// 2 valuta's: and you can pay with [currency]'s and [currency]'s
-
-async function currency(){
-    let countryCurrency = 'Euro';
-    console.log('Country currency', countryCurrency)
-}

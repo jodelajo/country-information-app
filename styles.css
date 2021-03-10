@@ -1,21 +1,194 @@
 body {
-    margin: 0px;
-    /*padding: 30px;*/
-    background-color: lightskyblue;
+    background-color: #2E000E;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    font-family: "Courier New", sans-serif;
+}
+
+#box {
+    margin: 4% 10% 10% 10%;
+    background-color: #B90138;
+    padding: 30px 10%;
+    display: flex;
+    justify-content: center;
+    border-radius: 48px;
+    box-shadow: 5px 5px 15px  #170007;
+    flex-wrap: wrap;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bolder;
+    font-size: 52px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#image {
+    width: 30%;
+    height: 30%;
+    border-radius: 24px;
+    margin-bottom: 30px;
 }
 
 #form {
-    margin: 30px;
-padding: 0px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-#input {
-
-    background-color: white;
-    margin-top: 0px;
+#input, #button {
+    padding: 10px 20px;
+    font-size: 24px;
+    border: 3px solid #5C011C;
+    border-radius: 3px;
+    font-family: monospace;
 }
+
+#input{
+    background-color: lightpink;
+    text-transform: capitalize;
+}
+
 #button {
-    margin-top: 5px;
+    margin-left: 20px;
+    background-color: #450015;
+    font-weight: bold;
+    color: lightpink;
+    align-self: end;
 
-    background-color: hotpink;
+}
+#button:visited {
+    color: #740123;
+    border: 3px solid #5C011C;
+}
+
+#error-message{
+    margin-top: 30px;
+    color: #170007;
+    font-size: 18px;
+}
+
+#refresh{
+    margin-top: 20px;
+    margin-left: 20px;
+    padding: 3px 3px 3px 3px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    font-family: monospace;
+}
+
+.refresh-button {
+   display: none;
+}
+
+#info-block {
+    width: 100%;
+    padding: 20px;
+    margin: 40px 0;
+    background-color: #740123;
+    border: 3px solid #2E000E;
+    border-radius: 4px;
+    color: lightpink;
+}
+
+#part1 {
+    display: flex;
+    border-bottom: 3px solid #450015;
+    margin-top: 10px;
+    padding-bottom: 20px;
+    align-items: flex-end;
+    padding-left: 10px;
+}
+
+#part2 {
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 24px;
+}
+
+.flagImage {
+    width: 60px;
+    height: 40px;
+    border: solid 3px #450015;
+}
+
+#country {
+    margin-left: 20px;
+    font-weight: bolder;
+    font-size: 42px;
+    color: #CB416A;
+    text-transform: capitalize;
+}
+
+#geo, #cap {
+    margin-bottom: 16px;
+}
+
+#listOfCountries {
+    list-style-type: none;
+    column-count: 3;
+    justify-content: space-around;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    /*gap: 20px;*/
+    align-items: start;
+    /*padding: 10px 50px;*/
+
+
+
+}
+.country-item {
+    color: #fff;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: auto auto;
+    /*margin-bottom: 10px;*/
+    font-size: 1.2em;
+}
+.country-item:hover {
+    cursor: pointer;
+}
+
+.population {
+    grid-column-start: 2;
+    font-size: 0.6em;
+    opacity: 0;
+    color: #fff;
+    margin: 5px;
+}
+
+.show-population {
+    opacity: 1;
+}
+.single-flag {
+    width: 30px;
+    height: 20px;
+    margin-right: 10px;
+    /*display: inline-block;*/
+}
+
+.red {
+    color: #B90138;
+}
+.yellow {
+    color: yellow;
+}
+
+.blue {
+    color: blue;
+}
+.green {
+    color: green;
+}
+.purple {
+    color: purple;
 }
